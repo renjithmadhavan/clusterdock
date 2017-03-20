@@ -1,0 +1,305 @@
+    1  id
+    2  adduser renjith
+    3  sudo adduser cloudera
+    4  su - cloudera
+    5  ls -ltr
+    6  chmod 777 /home/renjith/impaladrivers/*
+    7  ext
+    8  exit
+    9  cd
+   10  pwd
+   11  ls -ltr
+   12  cd clusterdock/
+   13  ls -ltr
+   14  docker
+   15  vi test_docker.sh
+   16  chmod 755 test_docker.sh 
+   17  ./test_docker.sh 
+   18  docker ps
+   19  docker images
+   20  vi test_docker.sh
+   21  docker images
+   22  ls -ltr
+   23  source clusterdock.sh
+   24  vi start_cloudera.sh
+   25  chmod 755 start_cloudera.sh 
+   26  ./start_cloudera.sh 
+   27  ls -ltr
+   28  cd ..
+   29  git add .
+   30  cd clusterdock/
+   31  git add .
+   32  git commit -m "c1"
+   33  git config --global user.email "renjithmadhavan@gmail.com"
+   34  git config --global user.name "renjithmadhavan"
+   35  git add .
+   36  git commit -m "c1"
+   37  git push
+   38  history
+   39  ls -ltr
+   40  vi clusterdock.sh
+   41  ls -ltr
+   42  cd
+   43  yum install hive-server2
+   44  sudo apt-get install hive-server2
+   45  cd clusterdock/
+   46  ls -ltr
+   47  cat start_cloudera.sh 
+   48  clusterdock_ssh node-1.cluster
+   49  sudo apt-get install hive-jdbc
+   50  which beeline
+   51  clear
+   52  ls -ltr
+   53  cd 
+   54  ls -ltr
+   55  unzip Cloudera_HiveJDBC4_2.5.18.1050.zip
+   56  sudo apt-get install unzip
+   57  unzip Cloudera_HiveJDBC4_2.5.18.1050.zip
+   58  ls -ltr
+   59  which beeline
+   60  rm -rf *.jar
+   61  ls -ltr
+   62  rm -rf *.pdf
+   63  wget http://www-us.apache.org/dist/hive/hive-2.0.1/apache-hive-2.0.1-bin.tar.gz
+   64  ls -ltr
+   65  tar -xzvf apache-hive-2.0.1-bin.tar.gz
+   66  ls -ltr
+   67  cd apache-hive-2.0.1-bin
+   68  ls -ltr
+   69  cd bin
+   70  ls -ltr
+   71  cat /etc/hosts
+   72  ./beeline -u jdbc:hive2://192.168.123.2:10000 -n hue -p hue
+   73  ping 192.168.123.2
+   74  ./beeline -u jdbc:hive2://192.168.123.2:10000 -n admin -p admin
+   75  pwd
+   76  cd
+   77  ls -ltr
+   78  mkdir drivers
+   79  cd drivers/
+   80  cd
+   81  ls -ltr
+   82  beeline -u jdbc:hive2://
+   83  ls -ltr
+   84  cd apache-hive-2.0.1-bin/
+   85  ls
+   86  cd bin/
+   87  ./beeline -u jdbc:hive2://
+   88  sudo apt-get install hadoop-client
+   89  sudo apt-get install hadoop-clients
+   90  sudo apt-get install hadoopclient
+   91  sudo apt-get install hadoop*
+   92  cd
+   93  ls -ltr
+   94  wget http://archive.cloudera.com/cdh5/cdh/5/hadoop-2.6.0-cdh5.4.4.tar.gz
+   95  ls -ltr
+   96  mkdir cdh_client
+   97  cd cdh_client/
+   98  tar xvf ../hadoop-2.6.0-cdh5.4.4.tar.gz 
+   99  ls -ltr
+  100  pwd
+  101  export HADOOP_HOME=/home/renjith/cdh_client/hadoop-2.6.0-cdh5.4.4
+  102  export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+  103  export PATH=$HADOOP_HOME/bin:$PATH
+  104  cd $HADOOP_HOME/etc/hadoop
+  105  ls -ltr
+  106  pwd
+  107  cd
+  108  ls -lr
+  109  cd drivers
+  110  ls
+  111  cd ..
+  112  ls -ltr
+  113  cd apache-hive-2.0.1-bin
+  114  ls -ltr
+  115  cd bin
+  116  ls -ltr
+  117  ./beeline -u jdbc:hive2://
+  118  hadoop
+  119  java -version
+  120  sudo apt-get install openjdk-8-jdk
+  121  pwd
+  122  export HADOOP_HOME=/home/renjith/cdh_client/hadoop-2.6.0-cdh5.4.4
+  123  java -version
+  124  ./beeline -u jdbc:hive2://
+  125  export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
+  126  ./beeline -u jdbc:hive2://
+  127  pwd
+  128  cd
+  129  cd /home/renjith/cdh_client/hadoop-2.6.0-cdh5.4.4/
+  130  ls -ltr
+  131  cd bin
+  132  ls -ltr
+  133  cd hado
+  134  which beeline
+  135  cd ..
+  136  ls -ltr
+  137  find . -name beeline
+  138  cd sbin
+  139  ls -ltr
+  140  cd ..
+  141  cd bin
+  142  ls
+  143  cd ../cloudera/
+  144  ls
+  145  cd
+  146  ls -ltr
+  147  clusterdock_ssh node-1.cluster
+  148  ls -ltr
+  149  cd cdh_client
+  150  ls
+  151  rm -rf hadoop-2.6.0-cdh5.4.4/
+  152  ls -ltr
+  153  wget http://archive.cloudera.com/cdh5/cdh/5/hadoop-2.6.0-cdh5.8.0.tar.gz
+  154  tar -xvf hadoop-2.6.0-cdh5.8.0.tar.gz 
+  155  ls -ltr
+  156  cd hadoop-2.6.0-cdh5.8.0
+  157  ls -ltr
+  158  cd etc/hadoop
+  159  ls -ltr
+  160  pwd
+  161  history
+  162  pwd
+  163  export HADOOP_HOME=/home/renjith/cdh_client/hadoop-2.6.0-cdh5.8.0
+  164  cd
+  165  ls -ltr
+  166  hadoop -version
+  167  cd apache-hive-2.0.1-bin
+  168  cd bin
+  169  ./beeline -u jdbc:hive2://
+  170  history
+  171  ./beeline -u jdbc:hive2://192.168.123.2:10000 -n admin -p admin
+  172  echo $CLASSPATH
+  173  export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+  174  export PATH=$HADOOP_HOME/bin:$PATH
+  175  ./beeline -u jdbc:hive2://192.168.123.2:10000 -n admin -p admin
+  176  export HADOOP_CLASSPATH=/home/renjith/cdh_client/hadoop-2.6.0-cdh5.8.0/share/hadoop/common/lib/
+  177  ./beeline -u jdbc:hive2://192.168.123.2:10000 -n admin -p admin
+  178  cd /home/renjith/apache-hive-2.0.1-bin/lib/
+  179  ls -ltr
+  180  ls -ltr *stand*
+  181  cd
+  182  ls -ltr
+  183  wget http://www-us.apache.org/dist/hive/hive-1.1.1/apache-hive-1.1.1-bin.tar.gz
+  184  wget https://archive.apache.org/dist/hive/hive-1.1.0/apache-hive-1.1.0-bin.tar.gz
+  185  ls -ltr
+  186  tar xzvf apache-hive-1.1.0-bin.tar.gz
+  187  ls -ltr
+  188  cd apache-hive-1.1.0-bin
+  189  history
+  190  cd bin
+  191  ls -ltr
+  192  ./beeline -u jdbc:hive2://192.168.123.2:10000 -n admin -p admin
+  193  ls -ltr
+  194  echo $CLASSPATH
+  195  pwd
+  196  cd 
+  197  mkdir impaladrivers
+  198  cd impaladrivers/
+  199  pwd
+  200  export CLASSPATH=/home/renjith/impaladrivers
+  201  cd /home/renjith/apache-hive-1.1.0-bin/bin
+  202  ./beeline -u jdbc:impala://192.168.123.2:10000 -n admin -p admin
+  203  ./beeline -u jdbc:impala://192.168.123.2:21050 -n admin -p admin
+  204  ls -ltr
+  205  cd
+  206  ls -ltr
+  207  cd impaladrivers/
+  208  ls -ltr
+  209  export CLASSPATH=/home/renjith/impaladrivers/*jar
+  210  export CLASSPATH=/home/renjith/impaladrivers/*.jar
+  211  cd ~/apache-hive-1.1.0-bin/bin
+  212  ./beeline -u jdbc:impala://192.168.123.2:21050 -n admin -p admin
+  213  ./beeline -u jdbc:impala://192.168.123.2:21050
+  214  ./beeline -u jdbc:impala://192.168.123.3:21050
+  215  cd
+  216  find . -name beeline
+  217  cd -
+  218  ./beeline -u jdbc:impala://192.168.123.3:21050
+  219  echo $CLASSPATH
+  220  ls -ltr $CLASSPATH/
+  221  ls -ltr $(CLASSPATH)/
+  222  ls -ltr /home/renjith/impaladrivers/
+  223  echo $CLASSPATH
+  224  clusterdock_ssh node-1.cluster
+  225  hostname -i
+  226  clusterdock_ssh node-1.cluster
+  227  su - renjith
+  228  clusterdock_ssh node-1.cluster
+  229  cd
+  230  cd .ssh
+  231  ls -ltr
+  232  ls -altr
+  233  clusterdock_ssh node-1.cluster
+  234  ls -ltr
+  235  df -h
+  236  cd /dev
+  237  ls -ltr
+  238  pwd
+  239  clusterdock_ssh node-1.cluster
+  240  touch test.test
+  241  touch test.testsudo 
+  242  sudo touch test.test
+  243  clusterdock_ssh node-1.cluster
+  244  which clusterdock_ssh
+  245  type clusterdock_ssh
+  246  sh -x clusterdock_ssh node-1.cluster
+  247  bash -x clusterdock_ssh node-1.cluster
+  248  exit
+  249  clear
+  250  sudo su -
+  251  pwd
+  252  git clone https://github.com/renjithmadhavan/clusterdock.git
+  253  ls -ltr
+  254  cd clusterdock/
+  255  ls -ltr
+  256  vi setup_docker.sh
+  257  whoami
+  258  chmod 755 setup_docker.sh
+  259  ./setup_docker.sh
+  260  sudo su -
+  261  ls -ltr
+  262  cat start_cloudera.sh
+  263  cat test_docker.sh
+  264  history
+  265  vi test_docker.sh 
+  266  ls -ltr
+  267  cat test_docker.sh
+  268  cd
+  269  cls
+  270  ls
+  271  cd cdh_client/
+  272  ls
+  273  cd hadoop-2.6.0-cdh5.8.0
+  274  ls
+  275  cd bn
+  276  cd bin
+  277  ls
+  278  cd
+  279  ls
+  280  cd apache-hive-1.1.0-bin
+  281  ls
+  282  cd bin
+  283  echo $CLASSPATH
+  284  pwd
+  285  cd
+  286  ls -ltr
+  287  cd impaladrivers
+  288  ls
+  289  export CLASSPATH=`pwd`/*.jar
+  290  echo $CLASSPATH
+  291  cd /home/renjith/apache-hive-1.1.0-bin/bin
+  292  cat /etc/hosts
+  293  ./beeline jdbc:impala://node-1.cluster:21050/
+  294  java -version
+  295  export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
+  296  export HADOOP_HOME=/home/renjith/cdh_client/hadoop-2.6.0-cdh5.8.0
+  297  ./beeline jdbc:impala://node-1.cluster:21050/
+  298  ./beeline jdbc:impala://node-2.cluster:21050/
+  299  ./beeline jdbc:impala://node-2.cluster:21050/ -n hue -p hue
+  300  history
+  301  ls -ltr
+  302  cd clusterdock/
+  303  ls -ltr
+  304  vi scratchnotes.txt
+  305  history > scratchnotes.txt
