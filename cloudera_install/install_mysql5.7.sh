@@ -17,3 +17,21 @@ grep 'temporary password' /var/log/mysqld.log
 mysql -u root -p
 #show databases;
 #SET Password=PASSWORD('<pwd>');
+
+create database amon DEFAULT CHARACTER SET utf8;
+grant all on amon.* TO 'amon'@'%' IDENTIFIED BY 'Cl0ud_password';
+
+create database rman DEFAULT CHARACTER SET utf8;
+grant all on rman.* TO 'rman'@'%' IDENTIFIED BY 'Cl0ud_password';
+
+create database hive DEFAULT CHARACTER SET utf8;
+grant all on hive.* TO 'hive'@'%' IDENTIFIED BY 'Cl0ud_password';
+
+create database sentry DEFAULT CHARACTER SET utf8;
+grant all on sentry.* TO 'sentry'@'%' IDENTIFIED BY 'Cl0ud_password';
+
+create database cmdb DEFAULT CHARACTER SET utf8;
+grant all on cmdb.* TO 'cmdb'@'%' IDENTIFIED BY 'Cl0ud_password';
+
+create database oozie DEFAULT CHARACTER SET utf8;
+grant all on oozie.* TO 'oozie'@'%' IDENTIFIED BY 'Cl0ud_password';
