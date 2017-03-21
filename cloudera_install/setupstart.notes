@@ -1,0 +1,6 @@
+# Save the appropriate Cloudera Manager repo file (cloudera-manager.repo) for your system:
+wget https://archive.cloudera.com/cm5/redhat/5/x86_64/cm/cloudera-manager.repo?_ga=1.10564914.763295723.1483996328
+sudo cp cloudera-manager.repo /etc/yum.repos.d/
+sudo yum install oracle-j2sdk1.7
+sudo yum install cloudera-manager-daemons cloudera-manager-server
+sudo service cloudera-scm-server start
