@@ -1,3 +1,18 @@
+sed -i 's/enforcing/disabled/g' /etc/selinux/config
+echo "vm.swappiness=0" >> /etc/sysctl.conf
+echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
+
+sed -i 's/"inet_protocols = all"/"inet_protocols = ipv4"/g' /etc/postfix/main.cf
+
+echo 'never' > /sys/kernel/mm/transparent_hugepage/defrag
+echo 'never' > /sys/kernel/mm/transparent_hugepage/enabled
+
+echo "echo 'never' > /sys/kernel/mm/transparent_hugepage/defrag" >> /etc/rc.local
+echo "echo 'never' > /sys/kernel/mm/transparent_hugepage/enabled" >> /etc/rc.local
+
+vi /etc/ssh/sshd_config
+
+
 # Save the appropriate Cloudera Manager repo file (cloudera-manager.repo) for your system:
 wget https://archive.cloudera.com/cm5/redhat/5/x86_64/cm/cloudera-manager.repo?_ga=1.10564914.763295723.1483996328
 sudo cp cloudera-manager.repo /etc/yum.repos.d/
