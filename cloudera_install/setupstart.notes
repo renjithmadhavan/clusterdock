@@ -1,4 +1,4 @@
-sudo yum install pdsh
+yum install -y pdsh
 sed -i 's/enforcing/disabled/g' /etc/selinux/config
 echo "vm.swappiness=0" >> /etc/sysctl.conf
 echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
@@ -10,7 +10,7 @@ echo 'never' > /sys/kernel/mm/transparent_hugepage/enabled
 
 echo "echo 'never' > /sys/kernel/mm/transparent_hugepage/defrag" >> /etc/rc.local
 echo "echo 'never' > /sys/kernel/mm/transparent_hugepage/enabled" >> /etc/rc.local
-
+reboot
 vi /etc/ssh/sshd_config
 
 
