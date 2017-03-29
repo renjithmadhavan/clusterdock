@@ -1,10 +1,9 @@
-yum install wget
-sudo yum install wget
+sudo yum install -y wget
 wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
 sudo rpm -ivh mysql57-community-release-el7-9.noarch.rpm
 yum update
 sudo yum update
-sudo yum install mysql-server
+sudo yum install -y mysql-server
 sudo systemctl start mysqld
 sudo service mysqld stop
 #find . -name my.cnf
@@ -35,3 +34,9 @@ grant all on cmdb.* TO 'cmdb'@'%' IDENTIFIED BY 'Cl0ud_password';
 
 create database oozie DEFAULT CHARACTER SET utf8;
 grant all on oozie.* TO 'oozie'@'%' IDENTIFIED BY 'Cl0ud_password';
+
+create database hue DEFAULT CHARACTER SET utf8;
+grant all on hue.* TO 'hue'@'%' IDENTIFIED BY 'Cl0ud_password';
+
+
+sudo /usr/share/cmf/schema/scm_prepare_database.sh mysql cmdb cmdb 'Cl0ud_password'

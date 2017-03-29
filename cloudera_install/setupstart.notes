@@ -1,9 +1,10 @@
-yum install -y pdsh
+sudo yum install -y pdsh
+sudo yum install -y git
 sed -i 's/enforcing/disabled/g' /etc/selinux/config
 echo "vm.swappiness=0" >> /etc/sysctl.conf
 echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
 
-sed -i 's/"inet_protocols = all"/"inet_protocols = ipv4"/g' /etc/postfix/main.cf
+sed -i 's/inet_protocols\ \=\ all/inet_protocols\ =\ ipv4/g' /etc/postfix/main.cf
 
 echo 'never' > /sys/kernel/mm/transparent_hugepage/defrag
 echo 'never' > /sys/kernel/mm/transparent_hugepage/enabled
@@ -15,7 +16,7 @@ vi /etc/ssh/sshd_config
 
 
 # Save the appropriate Cloudera Manager repo file (cloudera-manager.repo) for your system:
-wget https://archive.cloudera.com/cm5/redhat/5/x86_64/cm/cloudera-manager.repo?_ga=1.10564914.763295723.1483996328
+wget https://archive.cloudera.com/cm5/redhat/5/x86_64/cm/cloudera-manager.repo
 sudo cp cloudera-manager.repo /etc/yum.repos.d/
 sudo yum install oracle-j2sdk1.7
 sudo yum install cloudera-manager-daemons cloudera-manager-server
@@ -28,9 +29,9 @@ sudo cp cloudera-manager.repo /etc/yum.repos.d/
 sudo yum install oracle-j2sdk1.7
 sudo yum install cloudera-manager-daemons cloudera-manager-server
 sudo service cloudera-scm-server start
+aY3Pr/NQeuj
 
-
- sudo /usr/bin/mysql_secure_installation
+ sudo /usr/bin/mysql_secure_installation newpassword - A1rtel$2016
 [...]
 Enter current password for root (enter for none):
 OK, successfully used password, moving on...
@@ -77,3 +78,8 @@ sudo mkdir -p /usr/share/java/
 sudo cp mysql-connector-java-5.1.41/mysql-connector-java-5.1.41-bin.jar /usr/share/java/mysql-connector-java.jar
 
 /usr/share/cmf/schema/scm_prepare_database.sh
+
+Bad Request (400)
+Workaround: Configure allowed_hosts in the safety-valve, Hue Service Advanced Configuration Snippet (Safety Valve) for hue_safety_valve.ini:
+[desktop]
+allowed_hosts=*
