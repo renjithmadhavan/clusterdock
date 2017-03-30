@@ -19,7 +19,9 @@ echo "echo 'never' > /sys/kernel/mm/transparent_hugepage/defrag" >> /etc/rc.loca
 echo "echo 'never' > /sys/kernel/mm/transparent_hugepage/enabled" >> /etc/rc.local
 reboot
 ###############
-ssh -o "StrictHostKeyChecking no" instance-1
+ssh -o "StrictHostKeyChecking no" instance-1 exit
+
+
 
 ###########################
 
@@ -38,38 +40,10 @@ sudo service mysqld stop
 sudo service mysqld start
 sudo service mysqld status
 sudo /sbin/chkconfig mysqld on
-sudo /sbin/chkconfig --list mysqld
+###  sudo /sbin/chkconfig --list mysqld  ( this command is not working for me )
 
 grep 'temporary password' /var/log/mysqld.log
 sudo /usr/bin/mysql_secure_installation newpassword
-[...]
-Enter current password for root (enter for none):
-OK, successfully used password, moving on...
-[...]
-Set root password? [Y/n] y
-New password:
-Re-enter new password:
-Remove anonymous users? [Y/n] Y
-[...]
-Disallow root login remotely? [Y/n] N
-[...]
-Remove test database and access to it [Y/n] Y
-[...]
-Reload privilege tables now? [Y/n] Y
-All done!
-
-
-wget https://archive.cloudera.com/cm5/redhat/5/x86_64/cm/cloudera-manager.repo
-sudo cp cloudera-manager.repo /etc/yum.repos.d/
-sudo yum install -y oracle-j2sdk1.7
-sudo yum install cloudera-manager-daemons cloudera-manager-server
-sudo service cloudera-scm-server start
-
-
-
-aY3Pr/NQeuj
-
-sudo /usr/bin/mysql_secure_installation newpassword - A1rtel$2016
 [...]
 Enter current password for root (enter for none):
 OK, successfully used password, moving on...
@@ -121,9 +95,10 @@ sudo cp mysql-connector-java-5.1.41/mysql-connector-java-5.1.41-bin.jar /usr/sha
 
 ###############################################################################
 # Save the appropriate Cloudera Manager repo file (cloudera-manager.repo) for your system:
-wget https://archive.cloudera.com/cm5/redhat/5/x86_64/cm/cloudera-manager.repo?_ga=1.10564914.763295723.1483996328
+wget https://archive.cloudera.com/cm5/redhat/5/x86_64/cm/cloudera-manager.repo
 sudo cp cloudera-manager.repo /etc/yum.repos.d/
 sudo yum install -y oracle-j2sdk1.7
+
 sudo yum install -y cloudera-manager-daemons cloudera-manager-server
 sudo /usr/share/cmf/schema/scm_prepare_database.sh mysql cmdb cmdb 'Cl0ud_password'
 
