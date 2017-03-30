@@ -1,5 +1,6 @@
 sudo yum install -y pdsh
 sudo yum install -y git
+sudo yum install -y wget
 sed -i 's/enforcing/disabled/g' /etc/selinux/config
 echo "vm.swappiness=0" >> /etc/sysctl.conf
 echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
