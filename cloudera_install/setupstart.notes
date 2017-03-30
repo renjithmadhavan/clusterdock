@@ -30,8 +30,7 @@ ssh -o "StrictHostKeyChecking no" instance-1
 # https://www.cloudera.com/documentation/enterprise/latest/topics/cm_ig_mysql.html#cmig_topic_5_5
 wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
 sudo rpm -ivh mysql57-community-release-el7-9.noarch.rpm
-yum update
-sudo yum update
+sudo yum -y update
 sudo yum install -y mysql-server
 sudo systemctl start mysqld
 
@@ -62,17 +61,12 @@ All done!
 
 wget https://archive.cloudera.com/cm5/redhat/5/x86_64/cm/cloudera-manager.repo
 sudo cp cloudera-manager.repo /etc/yum.repos.d/
-sudo yum install oracle-j2sdk1.7
+sudo yum install -y oracle-j2sdk1.7
 sudo yum install cloudera-manager-daemons cloudera-manager-server
 sudo service cloudera-scm-server start
 
 
-# Save the appropriate Cloudera Manager repo file (cloudera-manager.repo) for your system:
-wget https://archive.cloudera.com/cm5/redhat/5/x86_64/cm/cloudera-manager.repo?_ga=1.10564914.763295723.1483996328
-sudo cp cloudera-manager.repo /etc/yum.repos.d/
-sudo yum install oracle-j2sdk1.7
-sudo yum install cloudera-manager-daemons cloudera-manager-server
-sudo service cloudera-scm-server start
+
 aY3Pr/NQeuj
 
 sudo /usr/bin/mysql_secure_installation newpassword - A1rtel$2016
@@ -124,9 +118,20 @@ sudo cp mysql-connector-java-5.1.41/mysql-connector-java-5.1.41-bin.jar /usr/sha
 
 
 
-###############################################################################
 
+###############################################################################
+# Save the appropriate Cloudera Manager repo file (cloudera-manager.repo) for your system:
+wget https://archive.cloudera.com/cm5/redhat/5/x86_64/cm/cloudera-manager.repo?_ga=1.10564914.763295723.1483996328
+sudo cp cloudera-manager.repo /etc/yum.repos.d/
+sudo yum install -y oracle-j2sdk1.7
+sudo yum install -y cloudera-manager-daemons cloudera-manager-server
 sudo /usr/share/cmf/schema/scm_prepare_database.sh mysql cmdb cmdb 'Cl0ud_password'
+
+
+sudo service cloudera-scm-server start
+# http://Server host:7180 is the gui console for CM
+# tail the log file at tail -f /var/log/cloudera-scm-server/cloudera-scm-server.log
+
 
 ############################################################################################
 
