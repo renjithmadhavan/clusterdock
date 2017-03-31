@@ -114,3 +114,14 @@ Bad Request (400)
 Workaround: Configure allowed_hosts in the safety-valve, Hue Service Advanced Configuration Snippet (Safety Valve) for hue_safety_valve.ini:
 [desktop]
 allowed_hosts=*
+
+
+
+
+####################
+
+Installing Hive on Client
+
+wget http://www-eu.apache.org/dist/hive/hive-1.1.1/apache-hive-1.1.1-bin.tar.gz
+
+
