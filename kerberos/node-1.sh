@@ -33,11 +33,11 @@ yum install -y krb5-workstation
 # of the file before making edits in place
 # 
 # set the Realm
-sed -i.orig 's/EXAMPLE.COM/cluster/g' /etc/krb5.conf
+sed -i.orig 's/EXAMPLE.COM/c.valid-octagon-161920.internal/g' /etc/krb5.conf
 # set the hostname for the kerberos server
-sed -i.m1 's/kerberos.example.com/node-1.cluster/g' /etc/krb5.conf
+sed -i.m1 's/kerberos.example.com/instance-1.c.valid-octagon-161920.internal/g' /etc/krb5.conf
 # change domain name to cloudera 
-sed -i.m2 's/example.com/cluster/g' /etc/krb5.conf
+sed -i.m2 's/example.com/c.valid-octagon-161920.internal/g' /etc/krb5.conf
 
 # download UnlimitedJCEPolicyJDK7.zip from Oracle into
 # the /root directory
@@ -45,7 +45,8 @@ sed -i.m2 's/example.com/cluster/g' /etc/krb5.conf
 
 mkdir jce
 cd jce
-unzip ../UnlimitedJCEPolicyJDK7.zip 
+yum install -y unzip ; unzip /home/renjith/clusterdock/kerberos/UnlimitedJCEPolicyJDK7.zip
+#unzip ../UnlimitedJCEPolicyJDK7.zip 
 # save the original jar files
 cp /usr/java/jdk1.7.0_67-cloudera/jre/lib/security/local_policy.jar local_policy.jar.orig
 cp /usr/java/jdk1.7.0_67-cloudera/jre/lib/security/US_export_policy.jar US_export_policy.jar.orig
@@ -57,11 +58,22 @@ cp /root/jce/UnlimitedJCEPolicy/US_export_policy.jar /usr/java/jdk1.7.0_67-cloud
 # now create the kerberos database
 kdb5_util create -s
 
+[root@instance-1 ~]# kdb5_util create -s
+Loading random data
+Initializing database '/var/kerberos/krb5kdc/principal' for realm 'c.valid-octa
+master key name 'K/M@c.valid-octagon-161920.internal'
+You will be prompted for the database Master Password.
+It is important that you NOT FORGET this password.
+Enter KDC database master key:
+klist
+
+
+
 # type in cloudera at the password prompt
 echo suggested password is cloudera 
 
 # update the kdc.conf file
-sed -i.orig 's/EXAMPLE.COM/cluster/g' /var/kerberos/krb5kdc/kdc.conf
+sed -i.orig 's/EXAMPLE.COM/c.valid-octagon-161920.internal/g' /var/kerberos/krb5kdc/kdc.conf
 # this will add a line to the file with ticket life
 sed -i.m1 '/dict_file/a max_life = 1d' /var/kerberos/krb5kdc/kdc.conf
 # add a max renewable life
@@ -71,7 +83,7 @@ sed -i.m3 's/^max_/  max_/' /var/kerberos/krb5kdc/kdc.conf
 
 # the acl file needs to be updated so the */admin
 # is enabled with admin privileges 
-sed -i 's/EXAMPLE.COM/cluster/' /var/kerberos/krb5kdc/kadm5.acl
+sed -i 's/EXAMPLE.COM/c.valid-octagon-161920.internal/' /var/kerberos/krb5kdc/kadm5.acl
 
 # The kerberos authorization tickets need to be renewable
 # if not the Hue service will show bad (red) status
@@ -108,33 +120,33 @@ service kadmin start
 #
 
 kadmin.local <<eoj
-modprinc -maxrenewlife 1week krbtgt/cluster@cluster
+modprinc -maxrenewlife 1week krbtgt/c.valid-octagon-161920.internal@c.valid-octagon-161920.internal
 eoj
 # now just add a few user principals 
 #kadmin:  addprinc -pw <Password>
-# cloudera-scm/admin@cluster
+# cloudera-scm/admin@c.valid-octagon-161920.internal
 
 # add the admin user that CM will use to provision
-# kerberos in the cluster
+# kerberos in the c.valid-octagon-161920.internal
 kadmin.local <<eoj
-addprinc -pw cloudera cloudera-scm/admin@cluster
-modprinc -maxrenewlife 1week cloudera-scm/admin@cluster
+addprinc -pw cloudera cloudera-scm/admin@c.valid-octagon-161920.internal
+modprinc -maxrenewlife 1week cloudera-scm/admin@c.valid-octagon-161920.internal
 eoj
 
 # add the hdfs principal so you have a superuser for hdfs
 kadmin.local <<eoj
-addprinc -pw cloudera hdfs@cluster
+addprinc -pw cloudera hdfs@c.valid-octagon-161920.internal
 eoj
 
 # add a cloudera principal  for the standard user 
 # in the Cloudera Quickstart VM
 kadmin.local <<eoj
-addprinc -pw cloudera cloudera@cluster
+addprinc -pw cloudera cloudera@c.valid-octagon-161920.internal
 eoj
 
 # test the server by authenticating as the CM admin user
 # enter the password cloudera when you are prompted
-kinit cloudera-scm/admin@CLOUDERA
+kinit cloudera-scm/admin@c.valid-octagon-161920.internal
 
 # once you have a valid ticket you can see the 
 # characteristics of the ticket with klist -e
