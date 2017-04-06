@@ -1,1 +1,14 @@
 Client side tools setup
+
+
+[renjith@instance-4 ~]$ beeline
+Beeline version 1.1.0-cdh5.10.1 by Apache Hive
+beeline> !connect jdbc:hive2://instance-1:10000
+
+show databases ;
+
+use default;
+
+show tables;
+
+select count(*) from customers ;
