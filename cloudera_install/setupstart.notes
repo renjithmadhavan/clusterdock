@@ -34,11 +34,8 @@ wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
 sudo rpm -ivh mysql57-community-release-el7-9.noarch.rpm
 sudo yum -y update
 sudo yum install -y mysql-server
-sudo systemctl start mysqld
-
-sudo service mysqld stop
-sudo service mysqld start
-sudo service mysqld status
+# cat /etc/my.cnf
+sudo systemctl start mysqld;sleep 4;sudo service mysqld stop;sleep 7;sudo service mysqld start;sleep 3;sudo service mysqld status
 sudo /sbin/chkconfig mysqld on
 ###  sudo /sbin/chkconfig --list mysqld  ( this command is not working for me )
 
@@ -106,6 +103,8 @@ sudo /usr/share/cmf/schema/scm_prepare_database.sh mysql cmdb cmdb 'Cl0ud_passwo
 sudo service cloudera-scm-server start
 # http://Server host:7180 is the gui console for CM
 # tail the log file at tail -f /var/log/cloudera-scm-server/cloudera-scm-server.log
+
+sudo tail -f /var/log/cloudera-scm-server/cloudera-scm-server.log
 
 
 ############################################################################################
