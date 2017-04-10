@@ -123,4 +123,10 @@ Installing Hive on Client
 
 wget http://www-eu.apache.org/dist/hive/hive-1.1.1/apache-hive-1.1.1-bin.tar.gz
 
+sudo /usr/share/cmf/schema/scm_prepare_database.sh mysql cmdb cmdb ''
 
+/usr/share/cmf/schema/scm_prepare_database.sh mysql -h myhost1.sf.cloudera.com -utemp -ptemp --scm-host myhost2.sf.cloudera.com scm scm scm
+
+/usr/share/cmf/schema/scm_prepare_database.sh mysql -h pc1ubofahaa02.bofa.prod --scm-host pc1ubofahac01.boad.prod cmdb cmdb Cmdb#2017
+
+/usr/share/cmf/schema/scm_prepare_database.sh mysql -h pc1ubofahaa02.bofa.prod --scm-host pc1ubofahac01.bofa.prod --SCM_DATABASE cmdb --SCM_USER cmdb --SCM_PASSWORD 'Cmdb#2017'
