@@ -131,3 +131,12 @@ sudo /usr/share/cmf/schema/scm_prepare_database.sh mysql cmdb cmdb ''
 /usr/share/cmf/schema/scm_prepare_database.sh mysql -h pc1ubofahaa02.bofa.prod --scm-host pc1ubofahac01.boad.prod cmdb cmdb Cmdb#2017
 
 /usr/share/cmf/schema/scm_prepare_database.sh mysql -h pc1ubofahaa02.bofa.prod --scm-host pc1ubofahac01.bofa.prod --SCM_DATABASE cmdb --SCM_USER cmdb --SCM_PASSWORD 'Cmdb#2017'
+
+
+############# Data Science Workbench ################################
+
+wget https://archive.cloudera.com/cdsw/1/redhat/7/x86_64/cdsw/cloudera-cdsw.repo?_ga=2.53095656.1379529119.1494550410-763295723.1483996328
+sudo cp cloudera-cdsw.repo\?_ga\=2.53095656.1379529119.1494550410-763295723.1483996328 /etc/yum.repos.d/cloudera-cdsw.repo
+sudo rpm --import https://archive.cloudera.com/cdsw/1/redhat/7/x86_64/cdsw/RPM-GPG-KEY-cloudera
+sudo yum install cloudera-data-science-workbench
+sudo vi /etc/cdsw/config/cdsw.conf
