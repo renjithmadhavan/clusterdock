@@ -1,0 +1,9 @@
+# https://www.digitalocean.com/community/tutorials/how-to-authenticate-client-computers-using-ldap-on-an-ubuntu-12-04-vps
+
+yum install -y openldap-clients nss-pam-ldapd
+authconfig --enableforcelegacy --update
+authconfig --enableldap --enableldapauth --ldapserver="instance-3.c.valid-octagon-161920.internal" --ldapbasedn="dc=c,dc=valid-octagon-161920,dc=internal" --update
+vi /etc/nsswitch.conf
+
+mkdir /home/user1
+chown user1:users /home/user1
