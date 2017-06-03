@@ -141,12 +141,12 @@ eoj
 # add a cloudera principal  for the standard user 
 # in the Cloudera Quickstart VM
 kadmin.local <<eoj
-addprinc -pw cloudera cloudera@c.valid-octagon-161920.internal
+addprinc -pw cloudera cloudera@c.cosmic-bonfire-161817.internal
 eoj
 
 # test the server by authenticating as the CM admin user
 # enter the password cloudera when you are prompted
-kinit cloudera-scm/admin@c.valid-octagon-161920.internal
+kinit cloudera-scm/admin@c.cosmic-bonfire-161817.internal
 
 # once you have a valid ticket you can see the 
 # characteristics of the ticket with klist -e
