@@ -33,11 +33,11 @@ yum install -y krb5-workstation
 # of the file before making edits in place
 # 
 # set the Realm
-sed -i.orig 's/EXAMPLE.COM/c.valid-octagon-161920.internal/g' /etc/krb5.conf
+sed -i.orig 's/EXAMPLE.COM/c.cosmic-bonfire-161817.internal/g' /etc/krb5.conf
 # set the hostname for the kerberos server
-sed -i.m1 's/kerberos.example.com/instance-1.c.valid-octagon-161920.internal/g' /etc/krb5.conf
+sed -i.m1 's/kerberos.example.com/instance-1.c.cosmic-bonfire-161817.internal/g' /etc/krb5.conf
 # change domain name to cloudera 
-sed -i.m2 's/example.com/c.valid-octagon-161920.internal/g' /etc/krb5.conf
+sed -i.m2 's/example.com/c.cosmic-bonfire-161817.internal/g' /etc/krb5.conf
 
 # download UnlimitedJCEPolicyJDK7.zip from Oracle into
 # the /root directory
@@ -61,7 +61,7 @@ kdb5_util create -s
 [root@instance-1 ~]# kdb5_util create -s
 Loading random data
 Initializing database '/var/kerberos/krb5kdc/principal' for realm 'c.valid-octa
-master key name 'K/M@c.valid-octagon-161920.internal'
+master key name 'K/M@c.cosmic-bonfire-161817.internal'
 You will be prompted for the database Master Password.
 It is important that you NOT FORGET this password.
 Enter KDC database master key:
@@ -73,7 +73,7 @@ klist
 echo suggested password is cloudera 
 
 # update the kdc.conf file
-sed -i.orig 's/EXAMPLE.COM/c.valid-octagon-161920.internal/g' /var/kerberos/krb5kdc/kdc.conf
+sed -i.orig 's/EXAMPLE.COM/c.cosmic-bonfire-161817.internal/g' /var/kerberos/krb5kdc/kdc.conf
 # this will add a line to the file with ticket life
 sed -i.m1 '/dict_file/a max_life = 1d' /var/kerberos/krb5kdc/kdc.conf
 # add a max renewable life
@@ -83,7 +83,7 @@ sed -i.m3 's/^max_/  max_/' /var/kerberos/krb5kdc/kdc.conf
 
 # the acl file needs to be updated so the */admin
 # is enabled with admin privileges 
-sed -i 's/EXAMPLE.COM/c.valid-octagon-161920.internal/' /var/kerberos/krb5kdc/kadm5.acl
+sed -i 's/EXAMPLE.COM/c.cosmic-bonfire-161817.internal/' /var/kerberos/krb5kdc/kadm5.acl
 
 # The kerberos authorization tickets need to be renewable
 # if not the Hue service will show bad (red) status
@@ -120,22 +120,22 @@ service kadmin start
 #
 
 kadmin.local <<eoj
-modprinc -maxrenewlife 1week krbtgt/c.valid-octagon-161920.internal@c.valid-octagon-161920.internal
+modprinc -maxrenewlife 1week krbtgt/c.cosmic-bonfire-161817.internal@c.cosmic-bonfire-161817.internal
 eoj
 # now just add a few user principals 
 #kadmin:  addprinc -pw <Password>
-# cloudera-scm/admin@c.valid-octagon-161920.internal
+# cloudera-scm/admin@c.cosmic-bonfire-161817.internal
 
 # add the admin user that CM will use to provision
-# kerberos in the c.valid-octagon-161920.internal
+# kerberos in the c.cosmic-bonfire-161817.internal
 kadmin.local <<eoj
-addprinc -pw cloudera cloudera-scm/admin@c.valid-octagon-161920.internal
-modprinc -maxrenewlife 1week cloudera-scm/admin@c.valid-octagon-161920.internal
+addprinc -pw cloudera cloudera-scm/admin@c.cosmic-bonfire-161817.internal
+modprinc -maxrenewlife 1week cloudera-scm/admin@c.cosmic-bonfire-161817.internal
 eoj
 
 # add the hdfs principal so you have a superuser for hdfs
 kadmin.local <<eoj
-addprinc -pw cloudera hdfs@c.valid-octagon-161920.internal
+addprinc -pw cloudera hdfs@c.cosmic-bonfire-161817.internal
 eoj
 
 # add a cloudera principal  for the standard user 
