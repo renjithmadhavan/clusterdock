@@ -165,3 +165,7 @@ cat /etc/krb5.conf
 # make the kerberos services autostart
 chkconfig kadmin on
 chkconfig krb5kdc on
+
+
+########################
+#### aes256-cts-hmac-sha1-96 - kerberos encryption type
