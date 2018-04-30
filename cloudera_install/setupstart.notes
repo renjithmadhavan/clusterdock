@@ -1,7 +1,5 @@
 #######################################
-sudo yum install -y pdsh
-sudo yum install -y git
-sudo yum install -y wget
+sudo yum install -y pdsh git wget
 git clone https://github.com/renjithmadhavan/clusterdock.git
 cd ~/.ssh
 cp /home/`whoami`/clusterdock/cloudera_install/id_rsa* .
